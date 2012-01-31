@@ -1,1 +1,5 @@
-console.log("Testar javascript");
+function displayDate()
+{
+	document.getElementById("intro").innerHTML=Date();
+	console.log("Funkar");
+}
