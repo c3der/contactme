@@ -3,9 +3,8 @@ define([
   'Underscore',
   'Backbone',
   'views/home/main',
-  'views/contacts/list',
   'collections/contacts'
-], function($, _, Backbone, MainHomeView, ContactListView, ContactsCollection) {
+], function($, _, Backbone, MainHomeView, ContactsCollection) {
       
   var AppRouter = Backbone.Router.extend( {
       
@@ -14,19 +13,12 @@ define([
     },
 
     routes: {
-      '' : 'home',
-
-      '/contacts': 'showContacts'
+      '' : 'home'
     },
     
     home: function() {
         var mainHomeView = new MainHomeView( { collection : this.collection } );
-        mainHomeView.render(); 
-    },
-
-    showContacts: function() {
-        var contactListView = new ContactListView( { collection : this.collection } );
-        contactListView.render();
+        mainHomeView.render();
     }
   });
 

@@ -16,9 +16,10 @@ define ([
 			'click .deleteContact' : 'deleteContact'
 		},
 
-		deleteContact : function( e ) {
-			console.log($(e.currentTarget));
-			$('.contact-id').val();
+		deleteContact : function() {
+			//console.log($(e.currentTarget));
+		 	console.log($('.removeContact').val())
+			this.model.destroy();
 		},
 
 		render: function() {

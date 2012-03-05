@@ -3,7 +3,7 @@ define([
 	'models/contact'
 ], 	function( Backbone, contactModel ) {
 	
-	var contactsCollection = Backbone.Collection.extend({
+	var ContactsCollection = Backbone.Collection.extend({
 		model : contactModel,
 
 		localStorage : new Store('Contacts'),
@@ -13,5 +13,5 @@ define([
 		}
 	});
 
-	return contactsCollection;
+	return ContactsCollection;
 });
