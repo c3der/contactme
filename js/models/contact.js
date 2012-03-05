@@ -4,17 +4,14 @@ define([
 ], function(_, Backbone) {
 	var contactModel = Backbone.Model.extend ({
 		defaults: {
-			contactID : 0,
+			profilePic : "img/profilePic.png",
 			name : null,
 			street : null, 
 			zip : null, 
 			city : null, 
-			categoryID : 0
-		},
-
-		initialize: function() {
+			category : "none"
 		}
 	});
-	return contactModel;
 
+	return contactModel;
 });

@@ -1,3 +1,3 @@
-define(['loader'], function(Loader){
-  return Loader._;
+define( ['order!libs/underscore/underscore-full'], function() {
+	return _;
 });

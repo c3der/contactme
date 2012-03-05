@@ -1,34 +1,31 @@
 define ([
 	'jQuery',
 	'Underscore',
-	'Backbone',
-	'collections/contacts',
-	'text!templates/contacts/list.html'
+	'Backbone'
 
-], function($, _, Backbone, contactsCollection, contactListTemplate) {
+], function($, _, Backbone) {
 	
 	var contactListView = Backbone.View.extend ({
 		el: $('#page'),
 
 		initialize: function() {
-			this.collection = contactsCollection;
-			this.collection.bind('add', this.exampleBind);
-			this.collection = contactsCollection.add({ name: 'Martin Cedeskog', street: 'Lomvägen 33', zip: '192 56', city: 'Sollentuna' });
-			this.collection = contactsCollection.add({ name: 'Max Juhlin', street: 'Lomvägen 319', zip: '192 56', city: 'Sollentuna' });
+			this.template = _.template( $('#list-contacts-template').html() );
 		},
 
-		exampleBind: function( model ) {
-			console.log(model);
+		events : {
+			'click .deleteContact' : 'deleteContact'
+		},
+
+		deleteContact : function( e ) {
+			console.log($(e.currentTarget));
+			$('.contact-id').val();
 		},
 
 		render: function() {
-			var data = {
-				contacts: this.collection.models,
-				_: _
-			};
-			var compiledTemplate = _.template( contactListTemplate, data );
-			$('#page').html( compiledTemplate );
+			$(this.el).html( this.template( { 
+				contacts : this.collection.models
+			}) );
 		}
 	});
-	return new contactListView;
+	return contactListView;
 });

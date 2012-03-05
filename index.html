@@ -4,6 +4,43 @@
 	 <title>ContactMe</title>
 	 <link rel="stylesheet" href="css/style.css">
 	 <script data-main="js/main" src="js/libs/require/require.js"></script>
+
+   <!-- MainHomeView -->
+   <script type="text/template" id="main-home-template">
+     <form id="addContactForm" method="get" action="">
+    <fieldset>
+      <label for="name">Namn: </label><br/>
+        <input class="inputField" type="text" name="name" id="name" /><br/>
+      <label for="street">Gata: </label><br/>
+        <input class="inputField" type="text" name="street" id="street" /><br/>
+      <label for="zip"> PostNr: </label><br/>
+        <input class="inputField" type="text" name="zip" id="zip" /><br/>
+      <label for="city">Stad: </label><br/>
+        <input class="inputField" type="text" name="city" id="city" /><br/>
+        <input class="button" type="button" value="Skapa kontakt" id="addContactBtn" name="addContactBtn" />
+    </fieldset>
+  </form>
+
+   </script>
+   <script type="text/template" id="list-contacts-template">
+     <ul>
+      <% _.each(contacts, function(contact) { %>
+        <li class="contactItem">
+          <dl>
+            <% console.log('id', contact ) %>
+            <img src=<%= contact.get('profilePic')%> width="50" height="50" />
+            <dt><%= contact.get('name') %></dt>
+            <dd><%= contact.get('street') %><dd>
+            <dd><%= contact.get('zip') %><dd>
+            <dd><%= contact.get('city') %><dd>
+            <a class="categoryLink" href="#"><dd><%= contact.get('category') %><dd></a>
+            <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.attributes.id %>" title=<%= contact.get('name') %> />
+          </dl>
+        </li>
+      <% }); %>
+      </ul>
+
+   </script>
 </head>
 <body>
   <div id="container">
@@ -16,7 +53,6 @@
       </ul>
     </div>
     <div id="page">
-      Laddar...
     </div>
   </div> 
 </body>

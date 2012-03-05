@@ -3,32 +3,33 @@ define([
   'Underscore',
   'Backbone',
   'views/home/main',
-  'views/contacts/list'
-], function($, _, Backbone, mainHomeView, contactListView) {
+  'views/contacts/list',
+  'collections/contacts'
+], function($, _, Backbone, MainHomeView, ContactListView, ContactsCollection) {
       
   var AppRouter = Backbone.Router.extend( {
       
+    initialize : function() {
+      this.collection = new ContactsCollection();
+    },
+
     routes: {
-      //Defines URL routs
-      '/contacts': 'showContacts',
+      '' : 'home',
 
-      '*actions': 'defaultAction'
+      '/contacts': 'showContacts'
     },
-    showContacts: function() {
-      contactListView.render();
-    },
-
-    defaultAction: function( actions ) {
+    
+    home: function() {
+        var mainHomeView = new MainHomeView( { collection : this.collection } );
         mainHomeView.render(); 
+    },
+
+    showContacts: function() {
+        var contactListView = new ContactListView( { collection : this.collection } );
+        contactListView.render();
     }
   });
 
-  var initialize = function() {
-    
-    var app_router = new AppRouter;
-    Backbone.history.start();
-  };
-  return { 
-    initialize: initialize
-  };
+  return AppRouter;
+
 });

@@ -1,15 +1,17 @@
 define([
-	'jQuery',
-	'Underscore',
 	'Backbone',
 	'models/contact'
-], 	function($, _, Backbone, contactModel){
-		var contactsCollection = Backbone.Collection.extend({
-			model : contactModel,
-			initialize : function(){
-				
-			}
+], 	function( Backbone, contactModel ) {
+	
+	var contactsCollection = Backbone.Collection.extend({
+		model : contactModel,
+
+		localStorage : new Store('Contacts'),
+
+		initialize : function() {
+			this.fetch();
+		}
 	});
 
-	return new contactsCollection;
+	return contactsCollection;
 });
