@@ -17,11 +17,7 @@ define([
     initialize: function() {
       this.template = _.template( $('#main-home-template').html() );
       
-      this.collection.bind( 'add', this.createContact, this );
-    },
-
-    createContact: function( model ) {
-      console.log( "Add on collection", model );
+      this.collection.bind( 'add', this.render, this );
     },
 
     submitContactForm :function( e ) {
