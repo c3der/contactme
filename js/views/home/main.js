@@ -8,16 +8,21 @@ define([
 ], function($, _, Backbone, ContactModel, ContactCollection ){
 
   var mainHomeView = Backbone.View.extend({
-    el: $("#page"),
+    el: $( "#page" ),
 
     events : {
       'click #addContactBtn' : 'submitContactForm',
+      'click #updateThisContact' : 'updateContact',
+      'click .deleteContact' : 'deleteContact',
+      'click .editContact' : 'updateContact',
     },
 
     initialize: function() {
-      this.template = _.template( $('#main-home-template').html() );
+      this.template = _.template( $( '#main-home-template' ).html() );
       
       this.collection.bind( 'add', this.render, this );
+      this.collection.bind( 'remove' , this.render, this);
+      this.collection.bind( 'change', this.render, this);
     },
 
     submitContactForm :function( e ) {
@@ -26,22 +31,42 @@ define([
       try {
         this.collection.create( {
           profilePic : "img/profilePic.png",
-          name: $('#name').val(),
-          street: $('#street').val(),
-          zip: this.$('#zip').val(),
-          city: $('#city').val(),
+          name: $( '#name' ).val(),
+          street: $( '#street' ).val(),
+          zip: this.$( '#zip' ).val(),
+          city: $( '#city' ).val(),
           category : "none"
         } ); 
       } catch( error ) {
-        console.log( "error:", error.message, error );
+          console.log( "error:", error.message, error );
       } 
+    },
+
+    deleteContact : function( e ) {
+      
+      var contactToDelete = this.collection.get( e.currentTarget.id );
+      
+      contactToDelete.destroy();
+    },
+
+    updateContact : function( e ) {
+      
+      var contactToEdit = this.collection.get( e.currentTarget.id );
+
+      $( '#name' ).val( contactToEdit.attributes.name );
+      $( '#street' ).val( contactToEdit.attributes.street );
+      $( '#zip' ).val( contactToEdit.attributes.zip );
+      $( '#city' ).val( contactToEdit.attributes.city );
+
+      $( '#addContactBtn' ).val( 'Update' );
+      $( '#addContactBtn' ).attr( 'id', '#updateThisContact' );
     },
 
 
     render: function() {
-      $(this.el).html( this.template( { 
+      $( this.el ).html( this.template( { 
         contacts : this.collection.models
-      }) );
+      }));
     }
   
   });

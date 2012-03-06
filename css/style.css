@@ -62,7 +62,9 @@ body { background-color: #fff; }
 	#page ul li a.categoryLink { float: right; color: #aaa; font-style: oblique; text-decoration: none; }
 	#page ul li dl img { float: left; padding-right: 10px; }
 
-#page ul li dl img.deleteContact { float: right; margin-top: -55px; margin-right: -40px; cursor: pointer; }
+#buttonField { float: right; margin-top: -55px; margin-right: -45px; }
+#page ul li dl img.deleteContact { cursor: pointer; }
+#page ul li dl img.editContact { margin-right: -8px; cursor: pointer; }
 
 #addContactForm { width: 660px; margin: 20px 0 10px 10px; }
 	#column1 { float: left; }

@@ -35,8 +35,10 @@
             <dd><%= contact.attributes.zip %><dd>
             <dd><%= contact.attributes.city %><dd>
             <a class="categoryLink" href="#"><dd><%= contact.attributes.category %><dd></a>
-            <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.attributes.id %>" title="<%= contact.attributes.name %>" />
-            <input type="hidden" name="removeContact" value="<%= contact.attributes.id %>" class="removeContact" />
+            <div id="buttonField">
+              <img src="img/edit.png" alt="edit" class="editContact" id="<%= contact.attributes.id %>" title="Edit" />
+              <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.attributes.id %>" title="Delete" />
+            </div>
           </dl>
         </li>
       <% }); %>
