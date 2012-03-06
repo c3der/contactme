@@ -5,7 +5,7 @@ define([
   'models/contact',
   'collections/contacts'
 
-], function($, _, Backbone, ContactModel, ContactCollection ){
+], function($, _, Backbone, ContactModel, ContactCollection){
 
   var mainHomeView = Backbone.View.extend({
     el: $( "#page" ),
@@ -65,7 +65,7 @@ define([
 
     render: function() {
       $( this.el ).html( this.template( { 
-        contacts : this.collection.models
+        contacts : this.collection.models,
       }));
     }
   
