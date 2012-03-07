@@ -23,6 +23,7 @@ define([
       
       var contactCollectionView = new ContactCollectionView( { collection : this.collection } );
       contactCollectionView.render();
+      
     }
   });
 

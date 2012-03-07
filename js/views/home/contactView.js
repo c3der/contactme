@@ -8,7 +8,6 @@ define([
 ], function($, _, Backbone, ContactModel, ContactCollection){
 
   var ContactView = Backbone.View.extend({
-    el: $( "#page" ),
 
     events : {
       'click .deleteContact' : 'deleteContact',
@@ -46,16 +45,14 @@ define([
     },
 
     updateContact : function( e ) {
-      
-      var contactToEdit = this.collection.get( e.currentTarget.id );
 
-      $( '#name' ).val( contactToEdit.attributes.name );
-      $( '#street' ).val( contactToEdit.attributes.street );
-      $( '#zip' ).val( contactToEdit.attributes.zip );
-      $( '#city' ).val( contactToEdit.attributes.city );
+      console.log('Edit');
 
-      $( '#addContactBtn' ).val( 'Update' );
-      $( '#addContactBtn' ).attr( 'id', '#updateThisContact' );
+      this.editTemplate = _.template( $( '#edit-contact-template' ).html() );
+
+
+      $('#page').html( this.editTemplate( { contact : this.model.attributes } ) );
+
     },
 
 

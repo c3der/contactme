@@ -6,7 +6,7 @@ define(
 
 	function( Backbone, ContactView )  {
 		var ContactCollectionView = Backbone.View.extend({
-
+			el: $( "#contactWrapper" ),
 			initialize : function() {
 
 				this.collection.bind( 'all', this.render, this );

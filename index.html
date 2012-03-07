@@ -5,6 +5,7 @@
 	 <link rel="stylesheet" href="css/style.css">
 	 <script type="text/javascript" data-main="js/main" src="js/libs/require/require.js"></script>
 
+   <!-- IndexView -->
    <script type="text/template" id="main-home-template">
     <form id="addContactForm" method="POST" action="">
       <fieldset>
@@ -29,26 +30,52 @@
       </fieldset>
     </form>
   </script>
-  <div id="contactsItem">
-     <ul>
-      <script type="text/template" id="contact-template">
-        <li class="contactItem">
-          <dl>
-            <img src="<%= contact.profilePic %>" width="50" height="50" />
-            <dt><%= console.log(contact.name) %></dt>
-            <dd><%= contact.street %><dd>
-            <dd><%= contact.zip %><dd>
-            <dd><%= contact.city %><dd>
-            <a class="categoryLink" href="#"><dd><%= contact.category %><dd></a>
-            <div id="buttonField">
-              <img src="img/edit.png" alt="edit" class="editContact" id="<%= contact.id %>" title="Edit" />
-              <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.id %>" title="Delete" />
-            </div>
-          </dl>
-        </li>
-        </script>
-      </ul>
+
+  <!-- IndexView -->
+   <script type="text/template" id="edit-contact-template">
+    <form id="addContactForm" method="POST" action="">
+      <fieldset>
+      <% console.log(contact); %>
+      <div id="column1">
+        <label for="name">Namn: </label><br/>
+          <input class="inputField" type="text" value="<%= contact.name %>" name="name" id="name" /><br/>
+        <label for="street">Gata: </label><br/>
+          <input class="inputField" type="text" value="<%= contact.street %>" name="street" id="street" /><br/>
+      </div>
+      <div id="column2">
+        <label for="zip"> Postnr: </label><br/>
+          <input class="inputField" type="text" value="<%= contact.zip %>" name="zip" id="zip" /><br/>
+        <label for="city">Stad: </label><br/>
+          <input class="inputField" type="text" value="<%= contact.city %>" name="city" id="city" /><br/>
+        </div>
+          <input class="button" type="submit" value="Uppdatera kontakt" id="updateContactBtn" name="updateContactBtn" />
+          <input type="hidden" id="contactID" value="<%= contact.id %>" />
+          <div id="radioBtns">
+            <input type="radio" name="category" value="family" /> Family<br />
+            <input type="radio" name="category" value="friends" /> Friends<br />
+            <input type="radio" name="category" value="work" /> Work
+          </div>
+      </fieldset>
+    </form>
+  </script>
+
+  <!-- Contactview -->
+  <script type="text/template" id="contact-template">
+    <div class="contactItem">
+      <dl>
+        <img src="<%= contact.profilePic %>" width="50" height="50" />
+        <dt><%= contact.name %></dt>
+        <dd><%= contact.street %><dd>
+        <dd><%= contact.zip %><dd>
+        <dd><%= contact.city %><dd>
+        <a class="categoryLink" href="#"><dd><%= contact.category %><dd></a>
+        <div id="buttonField">
+          <img src="img/edit.png" alt="edit" class="editContact" id="<%= contact.id %>" title="Edit" />
+          <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.id %>" title="Delete" />
+        </div>
+      </dl>
     </div>
+  </script>
 </head>
 <body>
   <div id="container">
@@ -56,10 +83,14 @@
     </div>
     <div id="menu">
       <ul>
-        <li>Home</li>
+        <li>ContactME - Keeps track of your contacts</li>
       </ul>
     </div>
     <div id="page">
+      <!-- Addform -->
+    </div>
+    <div id="contactWrapper">
+      <!-- contactss -->
     </div>
   </div> 
 </body>

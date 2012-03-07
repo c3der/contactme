@@ -51,23 +51,19 @@ body { background-color: #fff; }
 	#menu ul { padding: 10px 5px; }
 	#menu ul li { padding-left: 10px; font-family: "lucida grande", sans-serif; font-size: 12px; color: #fff; font-variant: small-caps; }
 
-#page {}
-	#page input[type="text"] { font-family: Arial, Sans-Serif; font-size: 13px; padding: 4px; border: solid 1px #ccc; width: 300px; background-color: #eee; }
-	#page input[type="text"]:hover { border: solid 1px #666; } 
-	
-#page ul li.contactItem { display: block; background: #eee; float: left; margin: 5px; width: 250px; padding: 10px; border: 1px solid #aaa; font-size: 12px; font-family: Arial, "MS Trebuchet", sans-serif; }
-	#page ul li dt { font-size: 13px; font-weight: 600; }
-	#page ul li a.categoryLink { float: right; color: #aaa; font-style: oblique; text-decoration: none; }
-	#page ul li dl img { float: left; padding-right: 10px; }
-
-#buttonField { float: right; margin-top: -55px; margin-right: -45px; }
-#page ul li dl img.deleteContact { cursor: pointer; }
-#page ul li dl img.editContact { margin-right: -8px; cursor: pointer; }
-
 #addContactForm { width: 760px; margin: 20px 0 10px 10px; }
 	#column1 { float: left; }
 	#column2 { margin-left: 350px; }
 	#addContactForm label { color: #aaa; font-family: Verdana; font-size: 14px; padding-bottom: 3px; margin-left: -5px; } 
+	#page input[type="text"] { font-family: Arial, Sans-Serif; font-size: 13px; padding: 4px; border: solid 1px #ccc; width: 300px; background-color: #eee; }
+	#page input[type="text"]:hover { border: solid 1px #666; } 
 
+#contactWrapper div.contactItem { display: block; background: #eee; float: left; margin: 5px; width: 250px; padding: 10px; border: 1px solid #aaa; font-size: 12px; font-family: Arial, "MS Trebuchet", sans-serif; }
+	#contactWrapper dt { font-size: 13px; font-weight: 600; }
+	#contactWrapper a.categoryLink { float: right; color: #aaa; font-style: oblique; text-decoration: none; }
+	#contactWrapper dl img { float: left; padding-right: 10px; }
+	#buttonField { float: right; margin-top: -55px; margin-right: -45px; }
+		#contactWrapper dl img.deleteContact { cursor: pointer; }
+		#contactWrapper dl img.editContact { margin-right: -8px; cursor: pointer; }
 
 #radioBtns { float: right; font-family: verdana; font-size: 10px; margin-top: -65px; }

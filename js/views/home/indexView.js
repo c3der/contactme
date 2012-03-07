@@ -12,7 +12,7 @@ define([
 
     events : {
       'click #addContactBtn' : 'submitContactForm',
-      'click #updateThisContact' : 'updateContact',
+      'click #updateContactBtn' : 'updateContact',
     },
 
     initialize: function() {
@@ -39,21 +39,31 @@ define([
     },
 
     updateContact : function( e ) {
-      
-      var contactToEdit = this.collection.get( e.currentTarget.id );
+      e.preventDefault();
 
-      $( '#name' ).val( contactToEdit.attributes.name );
-      $( '#street' ).val( contactToEdit.attributes.street );
-      $( '#zip' ).val( contactToEdit.attributes.zip );
-      $( '#city' ).val( contactToEdit.attributes.city );
+      var model = this.collection.get( this.$('#contactID').val() );
 
-      $( '#addContactBtn' ).val( 'Update' );
-      $( '#addContactBtn' ).attr( 'id', '#updateThisContact' );
+      try {
+        model.set( {
+          profilePic : "img/profilePic.png",
+          name: $( '#name' ).val(),
+          street: $( '#street' ).val(),
+          zip: this.$( '#zip' ).val(),
+          city: $( '#city' ).val(),
+          category : "none"
+        });
+
+        model.save();
+        this.render();
+
+      } catch( error ) {
+        console.log( 'error: ', error.message, error);
+      }
     },
 
 
     render: function() {
-      $(this.el).html( this.template() );
+      $(this.el).html( this.template );
     }
   
   });
