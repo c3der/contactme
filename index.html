@@ -5,51 +5,50 @@
 	 <link rel="stylesheet" href="css/style.css">
 	 <script type="text/javascript" data-main="js/main" src="js/libs/require/require.js"></script>
 
-   <!-- MainHomeView -->
    <script type="text/template" id="main-home-template">
-  <form id="addContactForm" method="POST" action="">
-    <fieldset>
-    <div id="column1">
-      <label for="name">Namn: </label><br/>
-        <input class="inputField" type="text" name="name" id="name" /><br/>
-      <label for="street">Gata: </label><br/>
-        <input class="inputField" type="text" name="street" id="street" /><br/>
-    </div>
-    <div id="column2">
-      <label for="zip"> Postnr: </label><br/>
-        <input class="inputField" type="text" name="zip" id="zip" /><br/>
-      <label for="city">Stad: </label><br/>
-        <input class="inputField" type="text" name="city" id="city" /><br/>
+    <form id="addContactForm" method="POST" action="">
+      <fieldset>
+      <div id="column1">
+        <label for="name">Namn: </label><br/>
+          <input class="inputField" type="text" name="name" id="name" /><br/>
+        <label for="street">Gata: </label><br/>
+          <input class="inputField" type="text" name="street" id="street" /><br/>
       </div>
-        <input class="button" type="submit" value="Skapa kontakt" id="addContactBtn" name="addContactBtn" />
-        <div id="radioBtns">
-          <input type="radio" name="category" value="family" /> Family<br />
-          <input type="radio" name="category" value="friends" /> Friends<br />
-          <input type="radio" name="category" value="work" /> Work
+      <div id="column2">
+        <label for="zip"> Postnr: </label><br/>
+          <input class="inputField" type="text" name="zip" id="zip" /><br/>
+        <label for="city">Stad: </label><br/>
+          <input class="inputField" type="text" name="city" id="city" /><br/>
         </div>
-    </fieldset>
-  </form>
+          <input class="button" type="submit" value="Skapa kontakt" id="addContactBtn" name="addContactBtn" />
+          <div id="radioBtns">
+            <input type="radio" name="category" value="family" /> Family<br />
+            <input type="radio" name="category" value="friends" /> Friends<br />
+            <input type="radio" name="category" value="work" /> Work
+          </div>
+      </fieldset>
+    </form>
+  </script>
   <div id="contactsItem">
      <ul>
-      <% _.each(contacts, function(contact) { %>
+      <script type="text/template" id="contact-template">
         <li class="contactItem">
           <dl>
-            <img src="<%= contact.attributes.profilePic %>" width="50" height="50" />
-            <dt><%= contact.attributes.name %></dt>
-            <dd><%= contact.attributes.street %><dd>
-            <dd><%= contact.attributes.zip %><dd>
-            <dd><%= contact.attributes.city %><dd>
-            <a class="categoryLink" href="#"><dd><%= contact.attributes.category %><dd></a>
+            <img src="<%= contact.profilePic %>" width="50" height="50" />
+            <dt><%= console.log(contact.name) %></dt>
+            <dd><%= contact.street %><dd>
+            <dd><%= contact.zip %><dd>
+            <dd><%= contact.city %><dd>
+            <a class="categoryLink" href="#"><dd><%= contact.category %><dd></a>
             <div id="buttonField">
-              <img src="img/edit.png" alt="edit" class="editContact" id="<%= contact.attributes.id %>" title="Edit" />
-              <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.attributes.id %>" title="Delete" />
+              <img src="img/edit.png" alt="edit" class="editContact" id="<%= contact.id %>" title="Edit" />
+              <img src="img/remove.png" alt="remove" class="deleteContact" id="<%= contact.id %>" title="Delete" />
             </div>
           </dl>
         </li>
-      <% }); %>
+        </script>
       </ul>
     </div>
-   </script>
 </head>
 <body>
   <div id="container">
@@ -57,7 +56,7 @@
     </div>
     <div id="menu">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li>Home</li>
       </ul>
     </div>
     <div id="page">

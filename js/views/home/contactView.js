@@ -7,22 +7,20 @@ define([
 
 ], function($, _, Backbone, ContactModel, ContactCollection){
 
-  var mainHomeView = Backbone.View.extend({
+  var ContactView = Backbone.View.extend({
     el: $( "#page" ),
 
     events : {
-      'click #addContactBtn' : 'submitContactForm',
-      'click #updateThisContact' : 'updateContact',
       'click .deleteContact' : 'deleteContact',
       'click .editContact' : 'updateContact',
     },
 
     initialize: function() {
-      this.template = _.template( $( '#main-home-template' ).html() );
-      
-      this.collection.bind( 'add', this.render, this );
-      this.collection.bind( 'remove' , this.render, this);
-      this.collection.bind( 'change', this.render, this);
+      this.template = _.template( $( '#contact-template' ).html() );
+
+      this.model.bind('add', this.render, this );
+      this.model.bind( 'remove' , this.render, this);
+      this.model.bind( 'change', this.render, this); 
     },
 
     submitContactForm :function( e ) {
@@ -42,7 +40,7 @@ define([
       } 
     },
 
-    deleteContact : function( model ) {
+    deleteContact : function() {
       
       this.model.destroy();
     },
@@ -62,18 +60,15 @@ define([
 
 
     render: function() {
-      this.$el.empty();
-      
-      for( var i = 1; i < this.collection.length; i++ )
-      {
-        var mainView = new mainHomeView( { model : this.collection.at( i ) } );
-        this.$el.append( mainView.render().$el );
-      }
+      $(this.el).html( this.template({
+          contact : this.model.attributes
+        }));
 
+        return this;
     }
   
   });
   
-  return mainHomeView;
+  return ContactView;
 
 });

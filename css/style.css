@@ -49,9 +49,7 @@ body { background-color: #fff; }
 
 #menu { background-color: #000; }
 	#menu ul { padding: 10px 5px; }
-	#menu ul li { display: inline-block; }
-	#menu ul li a { padding: 10px 5px; font-family: "lucida grande", sans-serif; font-size: 12px; color: #fff; text-decoration: none; font-variant: small-caps; }
-	#menu ul li a:hover { color: lime; }
+	#menu ul li { padding-left: 10px; font-family: "lucida grande", sans-serif; font-size: 12px; color: #fff; font-variant: small-caps; }
 
 #page {}
 	#page input[type="text"] { font-family: Arial, Sans-Serif; font-size: 13px; padding: 4px; border: solid 1px #ccc; width: 300px; background-color: #eee; }

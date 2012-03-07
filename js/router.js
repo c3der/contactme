@@ -2,9 +2,10 @@ define([
   'jQuery',
   'Underscore',
   'Backbone',
-  'views/home/main',
-  'collections/contacts'
-], function($, _, Backbone, MainHomeView, ContactsCollection) {
+  'collections/contacts',
+  'views/contacts/contactCollectionView',
+  'views/home/indexView'
+], function( $, _, Backbone, ContactsCollection, ContactCollectionView, IndexView ) {
       
   var AppRouter = Backbone.Router.extend( {
       
@@ -17,8 +18,11 @@ define([
     },
     
     home: function() {
-        var mainHomeView = new MainHomeView( { collection : this.collection } );
-        mainHomeView.render();
+      var indexView = new IndexView( { collection : this.collection } );
+      indexView.render();
+      
+      var contactCollectionView = new ContactCollectionView( { collection : this.collection } );
+      contactCollectionView.render();
     }
   });
 
