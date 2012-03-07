@@ -42,11 +42,9 @@ define([
       } 
     },
 
-    deleteContact : function( e ) {
+    deleteContact : function( model ) {
       
-      var contactToDelete = this.collection.get( e.currentTarget.id );
-      
-      contactToDelete.destroy();
+      this.model.destroy();
     },
 
     updateContact : function( e ) {
@@ -64,9 +62,14 @@ define([
 
 
     render: function() {
-      $( this.el ).html( this.template( { 
-        contacts : this.collection.models,
-      }));
+      this.$el.empty();
+      
+      for( var i = 1; i < this.collection.length; i++ )
+      {
+        var mainView = new mainHomeView( { model : this.collection.at( i ) } );
+        this.$el.append( mainView.render().$el );
+      }
+
     }
   
   });
