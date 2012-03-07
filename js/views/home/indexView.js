@@ -31,7 +31,7 @@ define([
           street: $( '#street' ).val(),
           zip: this.$( '#zip' ).val(),
           city: $( '#city' ).val(),
-          category : "none"
+          category : $("input[name='categoryGroup']:checked").val()
         } ); 
       } catch( error ) {
           console.log( "error:", error.message, error );
@@ -50,7 +50,7 @@ define([
           street: $( '#street' ).val(),
           zip: this.$( '#zip' ).val(),
           city: $( '#city' ).val(),
-          category : "none"
+          category : $("input[name='categoryGroup']:checked").val()
         });
 
         model.save();

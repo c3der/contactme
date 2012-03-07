@@ -22,23 +22,6 @@ define([
       this.model.bind( 'change', this.render, this); 
     },
 
-    submitContactForm :function( e ) {
-      e.preventDefault();
-
-      try {
-        this.collection.create( {
-          profilePic : "img/profilePic.png",
-          name: $( '#name' ).val(),
-          street: $( '#street' ).val(),
-          zip: this.$( '#zip' ).val(),
-          city: $( '#city' ).val(),
-          category : "none"
-        } ); 
-      } catch( error ) {
-          console.log( "error:", error.message, error );
-      } 
-    },
-
     deleteContact : function() {
       
       this.model.destroy();
