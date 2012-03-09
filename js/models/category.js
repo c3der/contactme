@@ -3,7 +3,7 @@ define([
 ], function( Backbone ) {
 	var categoryModel = Backbone.Model.extend ({
 		defaults: {
-			categoryType : "none",
+			type : "none"
 		},
 	});
 

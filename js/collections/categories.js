@@ -13,11 +13,12 @@ define([
 
 			if( this.models.length === 0 )
 			{
-				this.create( { categoryType : 'Family' } );
-				this.create( { categoryType : 'Friends' } );
-				this.create( { categoryType : 'Work' } );
+				this.create( { type : 'none' } );
+				this.create( { type : 'family' } );
+				this.create( { type : 'friends' } );
+				this.create( { type : 'work' } );
 			}
-		}
+		},
 	});
 
 	return CategoriesCollection;

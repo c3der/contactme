@@ -11,7 +11,7 @@ define([
 
     events : {
       'click .deleteContact' : 'deleteContact',
-      'click .editContact' : 'updateContact',
+      'click .editContact' : 'updateContact'
     },
 
     initialize: function() {
@@ -29,8 +29,6 @@ define([
 
     updateContact : function( e ) {
 
-      console.log('Edit');
-
       this.editTemplate = _.template( $( '#edit-contact-template' ).html() );
 
 
@@ -40,6 +38,7 @@ define([
 
 
     render: function() {
+
       $(this.el).html( this.template({
           contact : this.model.attributes
         }));

@@ -58,12 +58,19 @@ body { background-color: #fff; }
 	#page input[type="text"] { font-family: Arial, Sans-Serif; font-size: 13px; padding: 4px; border: solid 1px #ccc; width: 300px; background-color: #eee; }
 	#page input[type="text"]:hover { border: solid 1px #666; } 
 
+#contactWrapper { padding: 0 5px; width: 850px; }
 #contactWrapper div.contactItem { display: block; background: #eee; float: left; margin: 5px; width: 250px; padding: 10px; border: 1px solid #aaa; font-size: 12px; font-family: Arial, "MS Trebuchet", sans-serif; }
 	#contactWrapper dt { font-size: 13px; font-weight: 600; }
 	#contactWrapper a.categoryLink { float: right; color: #aaa; font-style: oblique; text-decoration: none; }
 	#contactWrapper dl img { float: left; padding-right: 10px; }
-	#buttonField { float: right; margin-top: -55px; margin-right: -45px; }
+	#buttonField { position: relative; top: -55px; left: 160px; }
 		#contactWrapper dl img.deleteContact { cursor: pointer; }
 		#contactWrapper dl img.editContact { margin-right: -8px; cursor: pointer; }
+		#contactWrapper div dl dd.capitalized { text-transform: uppercase; }
 
-#radioBtns { float: right; font-family: verdana; font-size: 10px; margin-top: -75px; }
+#searchWrapper { }
+	#searchContact { font-family: Arial, Sans-Serif; font-size: 13px; color: #bbb; }
+
+#categoriesWrapper { float: right; font-family: verdana; font-size: 10px; text-transform: capitalize; margin-top: 35px; margin-right: 80px; }
+
+#clear { clear: both; }

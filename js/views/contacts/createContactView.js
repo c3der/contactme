@@ -3,16 +3,20 @@ define([
   'Underscore',
   'Backbone',
   'models/contact',
-  'collections/contacts'
+  'collections/contacts',
+  'views/contacts/contactView'
 
-], function($, _, Backbone, ContactModel, ContactCollection){
+], function($, _, Backbone, ContactModel, ContactCollection, ContactView){
 
-  var IndexView = Backbone.View.extend({
+  var CreateContactView = Backbone.View.extend({
     el: $( "#page" ),
 
     events : {
       'click #addContactBtn' : 'submitContactForm',
       'click #updateContactBtn' : 'updateContact',
+      'keyup #searchContact' : 'search',
+      'keypress .inputFieldEdit' : 'enterEdit'
+
     },
 
     initialize: function() {
@@ -20,6 +24,21 @@ define([
 
       this.collection.bind('add', this.render, this );
     },
+
+    enterSave : function( e ) {
+      if ( e.keyCode == 13) {
+        this.submitContactForm( e );
+        return false;
+      }
+    },
+
+    enterEdit : function( e ) {
+      if ( e.keyCode == 13) {
+        this.updateContact( e );
+        return false;
+      }
+    },
+
 
     submitContactForm :function( e ) {
       e.preventDefault();
@@ -40,6 +59,7 @@ define([
 
     updateContact : function( e ) {
       e.preventDefault();
+      $('.inputField').attr('class', 'inputFieldEdit');
 
       var model = this.collection.get( this.$('#contactID').val() );
 
@@ -61,6 +81,22 @@ define([
       }
     },
 
+    search: function( e ) {
+      var letters = $( "#searchContact" ).val();
+      this.renderList(this.collection.search( letters ) );
+    },
+
+    renderList : function( contacts ){
+      $("#contactWrapper").html("");
+
+      contacts.each( function(contact) {
+        var view = new ContactView( { model : contact } );
+        $("#contactWrapper").append(view.render().el);
+      });
+
+      return this;
+
+    },
 
     render: function() {
       $(this.el).html( this.template );
@@ -68,6 +104,6 @@ define([
   
   });
   
-  return IndexView;
+  return CreateContactView;
 
 });
