@@ -4,7 +4,7 @@ define([
   'Backbone',
   'collections/contacts',
   'views/contacts/contactCollectionView',
-  'views/contacts/createContactVIew',
+  'views/contacts/createContactView',
   'collections/categories',
   'views/categories/categoryCollectionView'
 ], function( $, _, Backbone, ContactsCollection, ContactCollectionView, CreateContactView, CategoriesCollection, CategoryCollectionView ) {
