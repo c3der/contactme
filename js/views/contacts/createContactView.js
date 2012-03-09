@@ -14,6 +14,7 @@ define([
     events : {
       'click #addContactBtn' : 'submitContactForm',
       'click #updateContactBtn' : 'updateContact',
+      'click #backBtn' : 'render',
       'keyup #searchContact' : 'search',
       'keypress .inputFieldEdit' : 'enterEdit'
 
