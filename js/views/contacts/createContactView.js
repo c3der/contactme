@@ -16,6 +16,7 @@ define([
       'click #updateContactBtn' : 'updateContact',
       'click #backBtn' : 'render',
       'keyup #searchContact' : 'search',
+      'keypress .inputField' : 'enterSave',
       'keypress .inputFieldEdit' : 'enterEdit'
 
     },
@@ -44,6 +45,11 @@ define([
     submitContactForm :function( e ) {
       e.preventDefault();
 
+      $('#nameValidation').css('visibility', 'hidden');
+      $('#streetValidation').css('visibility', 'hidden');
+      $('#zipValidation').css('visibility', 'hidden');
+      $('#cityValidation').css('visibility', 'hidden');
+
       try {
         this.collection.create( {
           profilePic : "img/profilePic.png",
@@ -54,13 +60,12 @@ define([
           category : $("input[name='categoryGroup']:checked").val()
         } ); 
       } catch( error ) {
-          console.log( "error:", error.message, error );
+          console.log( error.message );
       } 
     },
 
     updateContact : function( e ) {
       e.preventDefault();
-      $('.inputField').attr('class', 'inputFieldEdit');
 
       var model = this.collection.get( this.$('#contactID').val() );
 
@@ -78,7 +83,7 @@ define([
         this.render();
 
       } catch( error ) {
-        console.log( 'error: ', error.message, error);
+        console.log( error.message );
       }
     },
 

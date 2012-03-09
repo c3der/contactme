@@ -71,6 +71,9 @@ body { background-color: #fff; }
 #searchWrapper { }
 	#searchContact { font-family: Arial, Sans-Serif; font-size: 13px; color: #bbb; }
 
-#categoriesWrapper { float: right; font-family: verdana; font-size: 10px; text-transform: capitalize; margin-top: 35px; margin-right: 80px; }
+#categoriesWrapper { float: right; font-family: verdana; font-size: 11px; text-transform: capitalize; margin-top: 35px; margin-right: 80px; }
 
-#clear { clear: both; }
+#nameValidation { visibility: hidden; color: #f27272; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 11px; }
+#streetValidation{ visibility: hidden; color: #f27272; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 11px; }
+#zipValidation { visibility: hidden; color: #f27272; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 11px; }
+#cityValidation { visibility: hidden; color: #f27272; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 11px; }

@@ -13,15 +13,15 @@
     <form id="addContactForm" method="POST" action="">
       <fieldset>
       <div id="column1">
-        <label for="name">Namn: </label><br/>
+        <label for="name">Name </label><span id="nameValidation"> * You must type a name.</span><br/>
           <input class="inputField" type="text" name="name" id="name" /><br/>
-        <label for="street">Gata: </label><br/>
+        <label for="street">Street </label><span id="streetValidation"> * You must type a street.</span><br/>
           <input class="inputField" type="text" name="street" id="street" /><br/>
       </div>
       <div id="column2">
-        <label for="zip"> Postnr: </label><br/>
+        <label for="zip"> Zip </label><span id="zipValidation"> * You must type a zip.</span><br/>
           <input class="inputField" type="text" name="zip" id="zip" /><br/>
-        <label for="city">Stad: </label><br/>
+        <label for="city">City </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
           <input class="inputField" type="text" name="city" id="city" /><br/>
         </div>
           <input class="button" type="submit" value="Save contact" id="addContactBtn" name="addContactBtn" /><br/><br/>
@@ -37,19 +37,20 @@
     <form id="addContactForm" method="POST" action="">
       <fieldset>
       <div id="column1">
-        <label for="name">Namn: </label><br/>
+        <label for="name">Name </label><span id="nameValidation"> * You must type a name.</span><br/>
           <input class="inputField" type="text" value="<%= contact.name %>" name="name" id="name" /><br/>
-        <label for="street">Gata: </label><br/>
+        <label for="street">Street </label><span id="streetValidation"> * You must type a street.</span><br/>
           <input class="inputField" type="text" value="<%= contact.street %>" name="street" id="street" /><br/>
       </div>
       <div id="column2">
-        <label for="zip"> Postnr: </label><br/>
+        <label for="zip">Zip </label><span id="zipValidation"> * You must type a zip.</span><br/>
           <input class="inputField" type="text" value="<%= contact.zip %>" name="zip" id="zip" /><br/>
-        <label for="city">Stad: </label><br/>
+        <label for="city">City </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
           <input class="inputField" type="text" value="<%= contact.city %>" name="city" id="city" /><br/>
         </div>
           <input class="button" type="submit" value="Update contact" id="updateContactBtn" name="updateContactBtn" /><br/><br/>
           <input type="hidden" id="contactID" value="<%= contact.id %>" />
+          <input type="hidden" id="contactCategory" value="none" />
       </fieldset>
     </form>
   </script>
@@ -74,7 +75,7 @@
 
   <!-- CategoryItem -->
   <script type="text/template" id="category-template">
-      <input type="radio" name="categoryGroup" value="<%= category.type %>" <% if ( category.type == 'none') { %> checked="checked" <% } %> /> <%= category.type %><br />
+      <input type="radio" name="categoryGroup" id="<%= category.type %>" value="<%= category.type %>" <% if ( category.type == 'none') { %> checked="checked" <% } %> /> <%= category.type %><br />
   </script>
 
 <!-- TEMPLATES END -->

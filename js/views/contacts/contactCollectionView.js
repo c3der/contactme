@@ -13,6 +13,7 @@ define(
 
 			render : function() {
 				this.$el.empty();
+
 				for( var i = 0; i < this.collection.length; i++ ) {
 					var contactView = new ContactView( { model : this.collection.at( i ) } );
 					this.$el.append( contactView.render().$el );

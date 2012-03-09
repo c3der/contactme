@@ -5,7 +5,7 @@ define([
   'models/contact',
   'collections/contacts'
 
-], function($, _, Backbone, ContactModel, ContactCollection){
+], function($, _, Backbone, ContactModel, ContactCollection ){
 
   var ContactView = Backbone.View.extend({
 
@@ -31,19 +31,17 @@ define([
 
       this.editTemplate = _.template( $( '#edit-contact-template' ).html() );
 
-
       $('#page').html( this.editTemplate( { contact : this.model.attributes } ) );
 
     },
 
 
     render: function() {
-
       $(this.el).html( this.template({
-          contact : this.model.attributes
-        }));
+        contact : this.model.attributes
+      }));
 
-        return this;
+      return this;
     }
   
   });
