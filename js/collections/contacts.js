@@ -1,3 +1,4 @@
+// contacts.js
 define([
 	'Backbone',
 	'models/contact'
@@ -12,6 +13,7 @@ define([
 			this.fetch();
 		},
 
+		// Retrieve the model corresponding to the search on name.
 		search : function( letters ){
 			if( letters == "" ) {
 				return this;

@@ -1,3 +1,4 @@
+// categoryCollectionView.js
 define(
 	[
 		'Backbone', 
@@ -7,12 +8,12 @@ define(
 	function( Backbone, CategoryView )  {
 		var CategoryCollectionView = Backbone.View.extend({
 			el: $( "#categoriesWrapper" ),
-			initialize : function() {
-			},
 
 			render : function() {
+				// Clear the element.
 				this.$el.empty();
 
+				// Create a separate view for each model.
 				for( var i = 0; i < this.collection.length; i++ ) {
 					var categoryView = new CategoryView( { model : this.collection.at( i ) } );
 					this.$el.append( categoryView.render().$el );

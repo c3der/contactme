@@ -1,4 +1,4 @@
-// Filename: app.js
+// app.js
 define([
   'jQuery', 
   'Underscore', 

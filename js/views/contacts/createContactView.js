@@ -1,3 +1,4 @@
+// createContactView.js
 define([
   'jQuery',
   'Underscore',
@@ -27,16 +28,20 @@ define([
       this.collection.bind('add', this.render, this );
     },
 
-    enterSave : function( e ) {
+    // Triggers function when hit button 'Enter'.
+    enterSave: function( e ) {
       if ( e.keyCode == 13) {
         this.submitContactForm( e );
+        
         return false;
       }
     },
 
+    // Triggers function when hit button 'Enter'.
     enterEdit : function( e ) {
       if ( e.keyCode == 13) {
         this.updateContact( e );
+        
         return false;
       }
     },
@@ -45,6 +50,7 @@ define([
     submitContactForm :function( e ) {
       e.preventDefault();
 
+      // Reset validation text.
       $('#nameValidation').css('visibility', 'hidden');
       $('#streetValidation').css('visibility', 'hidden');
       $('#zipValidation').css('visibility', 'hidden');
@@ -67,8 +73,15 @@ define([
     updateContact : function( e ) {
       e.preventDefault();
 
+      // Get the model to edit by clicked contactID.
       var model = this.collection.get( this.$('#contactID').val() );
 
+      $('#nameValidation').css('visibility', 'hidden');
+      $('#streetValidation').css('visibility', 'hidden');
+      $('#zipValidation').css('visibility', 'hidden');
+      $('#cityValidation').css('visibility', 'hidden');
+
+      // Try to update the model.
       try {
         model.set( {
           profilePic : "img/profilePic.png",
@@ -80,6 +93,8 @@ define([
         });
 
         model.save();
+
+        // Render the view again to show the updated information
         this.render();
 
       } catch( error ) {
@@ -87,11 +102,13 @@ define([
       }
     },
 
+    // Function that picks up the search phrase.
     search: function( e ) {
       var letters = $( "#searchContact" ).val();
       this.renderList(this.collection.search( letters ) );
     },
 
+    // Function that retrieves and prints all the names that fit with the given search phrase.
     renderList : function( contacts ){
       $("#contactWrapper").html("");
 

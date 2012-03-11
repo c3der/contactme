@@ -1,3 +1,4 @@
+// contactCollectionView.js
 define(
 	[
 		'Backbone', 
@@ -12,8 +13,10 @@ define(
 			},
 
 			render : function() {
+				// Clear the element.
 				this.$el.empty();
 
+				// Create a separate view for each model.
 				for( var i = 0; i < this.collection.length; i++ ) {
 					var contactView = new ContactView( { model : this.collection.at( i ) } );
 					this.$el.append( contactView.render().$el );

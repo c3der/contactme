@@ -57,6 +57,8 @@ body { background-color: #fff; }
 	#addContactForm label { color: #aaa; font-family: Verdana; font-size: 14px; padding-bottom: 3px; margin-left: -5px; } 
 	#page input[type="text"] { font-family: Arial, Sans-Serif; font-size: 13px; padding: 4px; border: solid 1px #ccc; width: 300px; background-color: #eee; }
 	#page input[type="text"]:hover { border: solid 1px #666; } 
+	#addContactBtn { margin-top: 10px; }
+	#updateContactBtn { margin-top: 10px; }
 
 #contactWrapper { padding: 0 5px; width: 850px; }
 #contactWrapper div.contactItem { display: block; background: #eee; float: left; margin: 5px; width: 250px; padding: 10px; border: 1px solid #aaa; font-size: 12px; font-family: Arial, "MS Trebuchet", sans-serif; }

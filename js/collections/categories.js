@@ -1,3 +1,4 @@
+// categories.js
 define([
 	'Backbone',
 	'models/category'
@@ -11,6 +12,7 @@ define([
 		initialize : function() {
 			this.fetch();
 
+			// Adds 4 categorys by default.
 			if( this.models.length === 0 )
 			{
 				this.create( { type : 'none' } );

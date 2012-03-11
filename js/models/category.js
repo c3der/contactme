@@ -1,3 +1,4 @@
+// category.js
 define([
 	'Backbone'
 ], function( Backbone ) {

@@ -1,3 +1,4 @@
+// contactView.js
 define([
   'jQuery',
   'Underscore',
@@ -31,10 +32,10 @@ define([
 
       this.editTemplate = _.template( $( '#edit-contact-template' ).html() );
 
+      // Opens a new view for editing a model and sends the data for the model.
       $('#page').html( this.editTemplate( { contact : this.model.attributes } ) );
 
     },
-
 
     render: function() {
       $(this.el).html( this.template({

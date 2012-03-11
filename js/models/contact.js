@@ -1,3 +1,4 @@
+// contact.js
 define([
 	'jQuery',
 	'Backbone'
@@ -12,6 +13,7 @@ define([
 			category : "none"
 		},
 
+		// Validate the input fields when try to submit.
 		validate : function( attrs ) {
 			
 			if ( !attrs.name || !attrs.street || !attrs.zip || !attrs.city || !attrs.category ) {

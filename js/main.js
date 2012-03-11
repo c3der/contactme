@@ -1,3 +1,4 @@
+// main.js
 require.config({
   paths: {
     jQuery: 'libs/jquery/jquery',

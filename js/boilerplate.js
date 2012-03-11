@@ -1,3 +1,4 @@
+// boilerplate.js
 define([
   'jQuery',
   'Underscore',

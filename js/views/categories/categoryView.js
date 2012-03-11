@@ -1,3 +1,4 @@
+// categoryView.js
 define([
   'jQuery',
   'Underscore',
