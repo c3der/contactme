@@ -24,7 +24,7 @@ define([
     },
 
     deleteContact : function() {
-      
+      $('#page').html(_.template($('#main-home-template').html()));
       this.model.destroy();
     },
 
