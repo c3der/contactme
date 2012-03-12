@@ -23,6 +23,11 @@ define([
 				return _( this.filter( function( data ) {
 			  		return pattern.test( data.get( "name" ) );
 				}));
+		},
+
+		// Sort in alphabetic order.
+		comparator : function( model ) {
+			return model.get( 'name' );
 		}
 	});
 
