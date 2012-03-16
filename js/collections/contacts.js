@@ -13,7 +13,7 @@ define([
 			this.fetch();
 		},
 
-		// Retrieve the model corresponding to the search on name.
+		// Retrieve the model corresponding to the search on name, street, zip or city.
 		search : function( letters ){
 			if( letters == "" ) {
 				return this;
@@ -21,7 +21,7 @@ define([
 
 			var pattern = new RegExp( letters, "i" );
 				return _( this.filter( function( data ) {
-			  		return pattern.test( data.get( "name" ) );
+			  		return pattern.test( data.get( "name" ) + data.get("street") + data.get("zip") + data.get("city"));
 				}));
 		},
 

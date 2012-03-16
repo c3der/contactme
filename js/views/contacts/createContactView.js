@@ -65,9 +65,12 @@ define([
           city: $( '#city' ).val(),
           category : $("input[name='categoryGroup']:checked").val()
         } ); 
+
+		// Set focus
+	  	$("#name").focus();
       } catch( error ) {
           console.log( error.message );
-      } 
+      } 	
     },
 
     updateContact : function( e ) {
