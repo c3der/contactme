@@ -13,20 +13,21 @@
     <form id="addContactForm" method="POST" action="">
       <fieldset>
       <div id="column1">
-        <label for="name">Name </label><span id="nameValidation"> * You must type a name.</span><br/>
-          <input class="inputField" type="text" name="name" id="name" /><br/>
-        <label for="street">Street </label><span id="streetValidation"> * You must type a street.</span><br/>
-          <input class="inputField" type="text" name="street" id="street" /><br/>
+        <label for="name">Name (max 20 chars) </label><span id="nameValidation"> * You must type a name.</span><br/>
+          <input class="inputField" type="text" name="name" id="name" maxlength="20" /><br/>
+        <label for="street">Street (max 20 chars) </label><span id="streetValidation"> * You must type a street.</span><br/>
+          <input class="inputField" type="text" name="street" id="street" maxlength="20" /><br/>
       </div>
       <div id="column2">
-        <label for="zip"> Zip </label><span id="zipValidation"> * You must type a zip.</span><br/>
-          <input class="inputField" type="text" name="zip" id="zip" /><br/>
-        <label for="city">City </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
-          <input class="inputField" type="text" name="city" id="city" /><br/>
+        <label for="zip"> Zip (max 20 chars) </label><span id="zipValidation"> * You must type a zip.</span><br/>
+          <input class="inputField" type="text" name="zip" id="zip" maxlength="20" /><br/>
+        <label for="city">City (max 20 chars) </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
+          <input class="inputField" type="text" name="city" id="city" maxlength="20" /><br/>
         </div>
           <input class="button" type="submit" value="Save contact" id="addContactBtn" name="addContactBtn" /><br/><br/>
       </fieldset>
       <div id="searchWrapper">
+		<label for="search">Search (By name, street, zip or city)</label><br />
         <input type="text" id="searchContact" name="searchContactField" value="Search contact..." onblur="this.value='Search contact...'" onfocus="this.value = ''"  />
       </div>
     </form>
@@ -37,16 +38,16 @@
     <form id="addContactForm" method="POST" action="">
       <fieldset>
       <div id="column1">
-        <label for="name">Name </label><span id="nameValidation"> * You must type a name.</span><br/>
-          <input class="inputFieldEdit" type="text" value="<%= contact.name %>" name="name" id="name" /><br/>
-        <label for="street">Street </label><span id="streetValidation"> * You must type a street.</span><br/>
-          <input class="inputFieldEdit" type="text" value="<%= contact.street %>" name="street" id="street" /><br/>
+        <label for="name">Name (max 20 chars) </label><span id="nameValidation"> * You must type a name.</span><br/>
+          <input class="inputFieldEdit" type="text" value="<%= contact.name %>" name="name" id="name" maxlength="20" /><br/>
+        <label for="street">Street (max 20 chars) </label><span id="streetValidation"> * You must type a street.</span><br/>
+          <input class="inputFieldEdit" type="text" value="<%= contact.street %>" name="street" id="street" maxlength="20" /><br/>
       </div>
       <div id="column2">
-        <label for="zip">Zip </label><span id="zipValidation"> * You must type a zip.</span><br/>
-          <input class="inputFieldEdit" type="text" value="<%= contact.zip %>" name="zip" id="zip" /><br/>
-        <label for="city">City </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
-          <input class="inputFieldEdit" type="text" value="<%= contact.city %>" name="city" id="city" /><br/>
+        <label for="zip">Zip (max 20 chars) </label><span id="zipValidation"> * You must type a zip.</span><br/>
+          <input class="inputFieldEdit" type="text" value="<%= contact.zip %>" name="zip" id="zip" maxlength="20" /><br/>
+        <label for="city">City (max 20 chars) </label><span id="cityValidation" visibility="hidden"> * You must type a city.</span><br/>
+          <input class="inputFieldEdit" type="text" value="<%= contact.city %>" name="city" id="city" maxlength="20" /><br/>
         </div>
           <input class="button" type="submit" value="Update contact" id="updateContactBtn" name="updateContactBtn" /><br/><br/>
           <input type="hidden" id="contactID" value="<%= contact.id %>" />
